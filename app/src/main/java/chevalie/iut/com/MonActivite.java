@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,8 +14,21 @@ public class MonActivite extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.constrained);
+        this.setContentView(R.layout.tabled);
 
+        String[] array = getResources().getStringArray(R.array.tableau);
+        for (int i = 0; i < 8; i++) {
+            int res = getResources().getIdentifier("button"+(i+1), "id", getPackageName());
+            Button b = findViewById(res);
+            b.setText(array[i]);
+
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getApplicationContext(), ((Button) view).getText(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
     }
 
