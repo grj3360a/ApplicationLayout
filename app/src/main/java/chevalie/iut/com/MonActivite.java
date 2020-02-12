@@ -13,14 +13,7 @@ public class MonActivite extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.mon_activite);
-
-        LinearLayout layout = findViewById(R.id.monActiviteLayout);
-        for (int i = 1; i <= 50; i++) {
-            TextView textView = new TextView(getApplicationContext());
-            textView.setText("TextView #" + i);
-            layout.addView(textView);
-        }
+        this.setContentView(R.layout.constrained);
 
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
     }
